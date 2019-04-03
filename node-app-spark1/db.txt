@@ -1,0 +1,19 @@
+CREATE ROLE ‘padmin’ WITH LOGIN PASSWORD 'idpsparkdb';
+ALTER ROLE me CREATEDB;
+
+CREATE DATABASE TestDb;
+
+GRANT ALL PRIVILEGES ON DATABASE TestDb TO padmin	;
+
+psql -d api -U me
+
+
+CREATE TABLE users (
+  ID SERIAL PRIMARY KEY,
+  name VARCHAR(30),
+  email VARCHAR(30)
+);
+
+INSERT INTO users (name, email)
+  VALUES ('Ankit', 'ankit@example.com'), ('Mike', 'Mike@example.com');
+
